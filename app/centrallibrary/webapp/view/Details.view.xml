@@ -1,0 +1,355 @@
+<mvc:View controllerName="com.app.centrallibrary.controller.Details"
+    xmlns="sap.uxap"
+    xmlns:layout="sap.ui.layout"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:m="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns:ui5="sap.ui.webc.main"
+    height="100%" >
+     
+
+     <!-- <ui5:Toast
+        id="demoToast"
+        duration="2000"
+        height="30%"
+        width="30%"
+    /> -->
+    <ObjectPageLayout
+        id="ObjectPageLayout"
+        enableLazyLoading="true"
+        beforeNavigate="onBeforeNavigate"
+        useIconTabBar="true"
+        showTitleInHeaderContent="true"
+        upperCaseAnchorBar="true"
+        showAnchorBarPopover="true"
+        sectionChange="onSectionChange"
+        showAnchorBar="true"
+        backgroundDesignAnchorBar="Transparent"
+    >
+        <headerTitle>
+            <ObjectPageDynamicHeaderTitle id="idBooksListPage">
+                <expandedHeading>
+                    <m:Title
+                        id="IdLibraryTitle"
+                        text="Central Library"
+                        wrapping="true"
+                    />
+                </expandedHeading>
+ 
+                <snappedHeading>
+                    <m:FlexBox
+                        id="idFlexBoxHeaderContent"
+                        fitContainer="true"
+                        alignItems="Center"
+                    >
+                        <m:Avatar
+                            id="idAvatar"
+                            src=""
+                            class="sapUiTinyMarginEnd"
+                        />
+                        <m:Title
+                            id="idUserName"
+                            text="{UserName}"
+                            wrapping="true"
+                        />
+                    </m:FlexBox>
+                </snappedHeading>
+ 
+                <expandedContent>
+                    <m:Text
+                        id="idWelcomeTag"
+                        text="Welcomes You {UserName}"
+                    />
+                </expandedContent>
+
+                <actions >
+                <m:Button id="bellButton"  class="sapUiSmallMarginEnd"
+                icon="sap-icon://bell"
+                tooltip="Notifications"
+                type="Transparent"
+                press="onNotificationPress" />
+
+                <m:Button id="home" icon="sap-icon://log" text="Logout" press="onHome" type="Reject"/>
+                
+                </actions>
+
+
+            </ObjectPageDynamicHeaderTitle>
+        </headerTitle>
+ 
+        <headerContent>
+            <m:FlexBox
+                id="idFlexBok2"
+                wrap="Wrap"
+                fitContainer="true"
+            >
+                <m:Avatar
+                    id="idAvatar2"
+                    class="sapUiSmallMarginEnd"
+                    src=""
+                    displaySize="L"
+                />
+ 
+                <layout:VerticalLayout
+                    id="idVerticalLayout"
+                    class="sapUiSmallMarginBeginEnd"
+                >
+                    <m:Text
+                        id="idTextUserName"
+                        text="{UserName}"
+                    />
+                    <m:Link
+                        id="idLink1"
+                        text="{mobile}"
+                    />
+                    <m:Link
+                        id="idLink2"
+                        text="{UserName}@artihcus.com"
+                    />
+                </layout:VerticalLayout>
+                <layout:HorizontalLayout
+                    id="idHorizontalLayout"
+                    class="sapUiSmallMarginBeginEnd"
+                >
+                    <m:Image
+                        id="idImage"
+                        src=""
+                    />
+                    <m:Image
+                        id="idImage2"
+                        src=""
+                        class="sapUiSmallMarginBegin"
+                    />
+                </layout:HorizontalLayout>
+ 
+                <layout:VerticalLayout
+                    id="idVerticalLayout2"
+                    class="sapUiSmallMarginBeginEnd"
+                >
+                    <m:Label
+                        id="idLabelForUserText"
+                        text="Hello! {UserName} greetings from Central Library"
+                    />
+                </layout:VerticalLayout>
+ 
+                <layout:VerticalLayout
+                    id="idVerticalLayout3"
+                    class="sapUiSmallMarginBeginEnd"
+                >
+                    <m:Label
+                        id="idLabelAddress"
+                        text="HYD,Telengana"
+                    />
+                </layout:VerticalLayout>
+            </m:FlexBox>
+        </headerContent>
+ 
+        <sections>
+            <ObjectPageSection
+                titleUppercase="false"
+                id="idUserBorrowedBooksSection"
+                title="Active Loans"
+            >
+                <subSections>
+                    <ObjectPageSubSection
+                        id="idUserBorrowedBooksSubSection"
+                        titleUppercase="false"
+                    >
+                        <blocks>
+                            <m:Table
+                                id="idUserActiveLoanTable"
+                                mode="MultiSelect"
+                                alternateRowColors="true"
+                                items="{path:'booksLoan',filters:[{path:'Active',operator:'EQ',value1:'true'}]}"
+                               
+                            >
+                                <m:headerToolbar>
+                                    <m:OverflowToolbar
+                                        id="idBooksTableHeaderUserLoans"
+                                    >
+                                        <m:Title
+                                            id="idTableHeaderTitleUserLoans"
+                                            text="Borrows Books"
+                                        />
+                                        <m:ToolbarSpacer
+                                            id="idTableHeaderSpacerUserLoans"
+                                        />
+                                        <!-- <m:Button
+                                            id="idBtnNewBook"
+                                            text="New Book"
+                                            icon="sap-icon://add"
+                                            tooltip="Borrow New Book"
+                                            type="Success"
+                                            press="onBorrowNewBookPress"
+                                        />
+                                        <m:Button
+                                            id="idBtnReturn"
+                                            press="onReturnBookPress"
+                                            icon="sap-icon://delete"
+                                            tooltip="Return Book"
+                                            text="Return Book"
+                                            type="Negative"
+                                        /> -->
+                                    </m:OverflowToolbar>
+                                </m:headerToolbar>
+                                <m:columns>
+                                    <m:Column id="idBookNameColUserLoans">
+                                        <m:Title
+                                            id="idBookNameColTitleUserLoans"
+                                            text="Book Name"
+                                        />
+                                    </m:Column>
+                                    <m:Column id="idAuthorColUserLoans">
+                                        <m:Title
+                                            id="idAuthorColTitleUserLoans"
+                                            text="Author"
+                                        />
+                                    </m:Column>
+                                    <m:Column id="idISBNColUserLoans">
+                                        <m:Title
+                                            id="idISBNColTitleUserLoans"
+                                            text="ISBN"
+                                        />
+                                    </m:Column>
+                                    <m:Column id="idDueDateColUserLoans">
+                                        <m:Title
+                                            id="idDueDateColTitleUserLoans"
+                                            text="DueDate"
+                                        />
+                                    </m:Column>
+                                </m:columns>
+                                <m:items>
+                                    <m:ColumnListItem
+                                        id="idBooksTableColListItemUserLoans"
+                                        type="Navigation"
+                                    >
+                                        <m:cells>
+                                            <m:Text
+                                                id="idBookNameColValueUserLoans"
+                                                text="{books/title}"
+                                            />
+                                            <m:Text
+                                                id="idAuthorColValueUserLoans"
+                                                text="{books/author}"
+                                            />
+                                            <m:Text
+                                                id="idISBNColValueUserLoans"
+                                                text="{books/isbn}"
+                                            />
+                                            <m:Text
+                                                id="idDueDateValueUserLoans"
+                                                text="{duedate}"
+                                            />
+                                        </m:cells>
+                                    </m:ColumnListItem>
+                                </m:items>
+                            </m:Table>
+                        </blocks>
+                    </ObjectPageSubSection>
+                </subSections>
+            </ObjectPageSection>
+ 
+            <ObjectPageSection
+                titleUppercase="false"
+                id="idBorrowBooksSection"
+                title="Borrow Section"
+            >
+                <subSections>
+                    <ObjectPageSubSection
+                        id="idBorrowBooksSubSection"
+                        title="Available Books In Library"
+                        titleUppercase="false"
+                    >
+                        <blocks>
+                            <m:Table
+                                id="idBooksTable"
+                                mode="MultiSelect"
+                                alternateRowColors="true"
+                                items="{path:'/Books',parameters:{
+                    $count:true,
+                    $$updateGroupId:'booksGroup'    
+                     }
+                }"
+                            >
+                                <m:headerToolbar>
+                                    <m:OverflowToolbar id="idBooksTableHeader">
+                                        <!-- text="Availble Stock :{/Books/$count} Books" -->
+ 
+                                        <m:Title
+                                            id="idTableHeaderTitle"
+                                            text="Availble Stock"
+                                        />
+                                        <m:ToolbarSpacer
+                                            id="idTableHeaderSpacer"
+                                        />
+                                        <m:Button
+                                            id="idBtnEdit"
+                                            text="Reserve Book"
+                                            icon="sap-icon://add"
+                                            type="Emphasized"
+                                            press="onBorrowNewBookPress"
+                                            tooltip="Click to Borrow"
+                                        />
+                                    </m:OverflowToolbar>
+                                </m:headerToolbar>
+                                <m:columns>
+                                    <m:Column id="idAuthorCol">
+                                        <m:Title
+                                            id="idAuthorColHead"
+                                            text="Author"
+                                        />
+                                    </m:Column>
+                                    <m:Column id="idbookNameCol">
+                                        <m:Title
+                                            id="idbookNameColHead"
+                                            text="Book Title"
+                                        />
+                                    </m:Column>
+                                    <m:Column id="idStockCol">
+                                        <m:Title
+                                            id="idStockColHead"
+                                            text="Quantity"
+                                        />
+                                    </m:Column>
+                                    <m:Column id="idISBNCol">
+                                        <m:Title
+                                            id="idISBNColHead"
+                                            text="ISBN Number"
+                                        />
+                                    </m:Column>
+                                </m:columns>
+                                <m:items>
+                                    <m:ColumnListItem
+                                        id="idBooksTableColListItem"
+                                        type="Navigation"
+                                    >
+                                        <m:cells>
+                                            <m:Text
+                                                id="AuthorColValueId"
+                                                text="{author}"
+                                            />
+                                            <m:Text
+                                                id="idBookNameColValue"
+                                                text="{title}"
+                                            />
+                                            <m:Text
+                                                id="idStockColValue"
+                                                text="{avl_stock}"
+                                            />
+                                            <m:Text
+                                                id="idISBNColValue"
+                                                text="{isbn}"
+                                            />
+                                        </m:cells>
+                                    </m:ColumnListItem>
+                                </m:items>
+                            </m:Table>
+                        </blocks>
+                    </ObjectPageSubSection>
+                </subSections>
+            </ObjectPageSection>
+        </sections>
+    </ObjectPageLayout>
+</mvc:View>

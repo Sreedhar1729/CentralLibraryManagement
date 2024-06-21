@@ -1,0 +1,39 @@
+<mvc:View controllerName="com.app.centrallibrary.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns:form="sap.ui.layout.form"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:layout="sap.ui.layout"
+    xmlns:f="sap.f"
+>
+    <Page
+        id="idBooksListPageTitle"
+        title="{i18n>title}"
+        titleLevel="H6"
+        backgroundDesign="List"
+        class="sample"
+    >
+
+
+        <!-- for mainting buttons in header -->
+        <headerContent>
+        <OverflowToolbar id="_IDGenOverflowToolbar1" class="sapUiContentPadding">
+        <ToolbarSpacer id="_IDGenToolbarSpacer1" />
+            <Button
+                id="_IDGenButton1"
+                text="Admin"
+                press="onAdminButton"
+                type="Accept"
+            />
+             <ToolbarSpacer id="_IDGenToolbarSpacer2" />
+            <Button
+                id="_IDGenButton2"
+                text="User"
+                press="onUserLogin"
+                type="Accept"
+            />
+            </OverflowToolbar>
+        </headerContent>
+    </Page>
+  </mvc:View>

@@ -1,0 +1,227 @@
+{
+  "_version": "1.59.0",
+  "sap.app": {
+    "id": "com.app.centrallibrary",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.13.6",
+      "toolsId": "d647b566-c08d-453a-b50c-44ecd64bec57"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/BookSRV/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "odataVersion": "4.0"
+        }
+      },
+      "mainServiceV2": {
+        "uri": "/v2/BookSRV/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "odataVersion": "2.0"
+        }
+      }
+    },
+    "crossNavigation": {
+      "inbounds": {
+        "CentralLibrary-Display": {
+          "semanticObject": "CentralLibrary",
+          "action": "Display",
+          "title": "{{flpTitle}}",
+          "subTitle": "{{flpSubtitle}}",
+          "signature": {
+            "parameters": {},
+            "additionalParameters": "allowed"
+          }
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.125.1",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.f": {},
+        "sap.suite.ui.generic.template": {},
+        "sap.ui.comp": {},
+        "sap.ui.generic.app": {},
+        "sap.ui.table": {},
+        "sap.ushell": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "com.app.centrallibrary.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      },
+      "ModelV2": {
+        "dataSource": "mainServiceV2",
+        "preload": true,
+        "settings": {
+          "synchronizationMode": "None",
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      }      
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "async": true,
+        "viewPath": "com.app.centrallibrary.view",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "clearControlAggregation": false
+      },
+      "routes": [
+        {
+          "name": "RouteView1",
+          "pattern": ":?query:",
+          "target": [
+            "TargetView1"
+          ]
+        },
+        
+        {
+          "name": "routeLogin",
+          "pattern": "Login" ,
+          "target": [
+            "TargetLogin"
+          ]
+        },
+        {
+          "name": "routeUserLogin",
+          "pattern": "Details/{ID}",
+          "target": [
+            "TargetUserLogin"
+          ]
+        },
+        {
+          "name": "routeUserLoans",
+          "pattern": "Loans",
+          "target": [
+            "TargetUserLoans"
+          ]
+        },
+        {
+          "name": "routeIssuedBooks",
+          "pattern": "IssuedBooks" ,
+          "target": [
+            "TargetIssuedBooks"
+          ]
+        },
+        {
+          "name": "routeReservedBooks",
+          "pattern": "ReservedBooks" ,
+          "target": [
+            "TargetReservedBooks"
+          ]
+        }
+      ],
+      "targets": {
+        "TargetView1": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "View1",
+          "viewName": "View1"
+    },
+    "TargetLogin": {
+      "viewType": "XML",
+      "transition": "slide",
+      "clearControlAggregation": false,
+      "viewId": "Login",
+      "viewName": "Login"
+    },
+  "TargetUserLogin": {
+    "viewType": "XML",
+    "transition": "slide",
+    "clearControlAggregation": false,
+    "viewId": "Details",
+    "viewName": "Details"
+  },
+  "TargetUserLoans": {
+    "viewType": "XML",
+    "transition": "slide",
+    "clearControlAggregation": false,
+    "viewId": "UserLoans",
+    "viewName": "UserLoans"
+  },
+  "TargetIssuedBooks": {
+    "viewType": "XML",
+    "transition": "slide",
+    "clearControlAggregation": false,
+    "viewId": "IssuedBooks",
+    "viewName": "IssuedBooks"
+  },
+  "TargetReservedBooks": {
+    "viewType": "XML",
+    "transition": "slide",
+    "clearControlAggregation": false,
+    "viewId": "ReservedBooks",
+    "viewName":"ReservedBooks"
+  }
+}
+},
+    "rootView": {
+      "viewName": "com.app.centrallibrary.view.App",
+      "type": "XML",
+      "async": true,
+      "id": "App"
+    }
+  }
+}

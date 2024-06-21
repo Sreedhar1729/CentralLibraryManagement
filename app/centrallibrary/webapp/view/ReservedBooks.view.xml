@@ -1,0 +1,132 @@
+<mvc:View
+    controllerName="com.app.centrallibrary.controller.ReservedBooks"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+>
+    <Page id="idReservedBooksPage">
+        <Table
+            id="idReservedBooksPageTable"
+            alternateRowColors="true"
+            mode="MultiSelect"
+            growing="true"
+            paste="onPaste"
+            items="{ path:'/ReservedBooks',  parameters : {
+            $count : true  
+            
+        }}"
+            selectionChange="onSelectBooks"
+        >
+            <headerToolbar>
+                <OverflowToolbar id="idReservedBooksHeader">
+                    <Title
+                        id="_IDReservedBooksTitle"
+                        text="Reserved Books"
+                    />
+                    <ToolbarSpacer id="idRBTableHeaderSpacer" />
+                    <Toolbar id="IdReservedBooksPageToolbar">
+                        <content>
+                            <Title
+                                id="ReservedBooksPage"
+                                text="No.Of.Books:{/ReservedBooks/$count}"
+                                textAlign="Begin"
+                                textDirection="Inherit"
+                            />
+                        </content>
+                    </Toolbar>
+                    <!-- <ToolbarSpacer id="idTableHeaderSpacer" /> -->
+                </OverflowToolbar>
+            </headerToolbar>
+
+            <columns>
+                <Column id="idReservedBooksId">
+                    <Title
+                        id="IdReservedBooksID"
+                        text="ReserveID"
+                    />
+                </Column>
+                <Column id="IdReservedBooksUser">
+                    <Title
+                        id="IdReservedBooksUserCol"
+                        text="UserID"
+                    />
+                </Column>
+                <Column id="IdReservedBooksUserName">
+                    <Title
+                        id="IdReservedBooksUserNameCol"
+                        text="UserName"
+                    />
+                </Column>
+
+                <Column id="IdReservedBooksTitle">
+                    <Title
+                        id="IdReservedBooksTitleCol"
+                        text="BookID"
+                    />
+                </Column>
+                <Column id="IdReservedBooksBookName">
+                    <Title
+                        id="IdReservedBooksBookNameCol"
+                        text="BookTitle"
+                    />
+                </Column>
+                <Column id="IdReservedBooksAvlActions">
+                    <Title
+                        id="IdReservedBooksAvlActionsCol"
+                        text="BooksAvl"
+                    />
+                </Column>
+
+                <Column id="IdReservedBooksActions">
+                    <Title
+                        id="IdReservedBooksActionsCol"
+                        text="Actions"
+                    />
+                </Column>
+            </columns>
+
+            <items>
+                <ColumnListItem
+                    id="IdReservedBooksItem1"
+                    type="Navigation"
+                >
+                    <cells>
+                        <Text
+                            id="IdReservedBooksText1"
+                            text="{ID}"
+                        />
+                        <Text
+                            id="IdReservedBooksText5"
+                            text="{users/ID}"
+                        />
+                        <Text
+                            id="IdReservedBooksText6"
+                            text="{users/UserName}"
+                        />
+                        <Text
+                            id="IdReservedBooksText2"
+                            text="{books/ID}"
+                        />
+                        <Text
+                            id="IdReservedBookstitleText2"
+                            text="{books/title}"
+                        />
+                        <Text
+                            id="IdReservedBooksavl_stockText2"
+                            text="{books/avl_stock}"
+                        />
+                        <HBox id="idReservedBooksButton1">
+                            <Button
+                                id="idReservedBooksButton"
+                                icon="sap-icon://add"
+                                text="ISSUE"
+                                press="RDEL"
+                            />
+                        </HBox>
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
+    </Page>
+</mvc:View>

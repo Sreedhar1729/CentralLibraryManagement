@@ -1,0 +1,1 @@
+{"version":3,"file":"IssuedBooks.controller.js","names":["sap","ui","define","BaseController","extend","onInit"],"sources":["IssuedBooks-dbg.controller.js"],"mappings":"AAAAA,IAAIC,GAAGC,OACH,CAAE,mBACE,8BAEJ,SAASC,GACP,aAEA,OAAOA,EAAeC,OAAO,gDAAiD,CAC5EC,OAAQ,WACR,GAEJ","ignoreList":[]}

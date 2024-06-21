@@ -1,0 +1,11 @@
+ID,isbn,title,quantity,price,pages,author,status,avl_stock
+5c6e54af-4b6c-4e6d-bfd6-c429f88f04d8,9780553382167,The Hitchhiker's Guide to the Galaxy,25,12.99,304,Douglas Adams,In Stock,0
+86e5b17d-07e7-45b1-af4f-d5e816e2d405,9780061120084,To Kill a Mockingbird,15,9.99,336,Harper Lee,In Stock,3
+c2d3b243-3f61-49f2-9368-0a9ef34d6ed3,9780143111597,1984,20,10.49,328,George Orwell,In Stock,3
+7d84c3fd-53e4-4c4b-80e4-742a228d23b0,9780446675536,The Alchemist,30,11.79,208,Paulo Coelho,In Stock,4
+4b015823-d535-4a1b-a417-dc3d79232b43,9780060850524,The Catcher in the Rye,12,8.49,288,J.D. Salinger,Out of Stock,2
+1271f4cf-0eb6-42b1-8d78-383b0ab5ed07,9780345538376,The Night Circus,18,13.29,400,Erin Morgenstern,In Stock,6
+51b3bb14-2274-4d32-8e54-9a9d66a59402,9780141439587,Pride and Prejudice,22,7.99,279,Jane Austen,In Stock,5
+7c6718ae-99ef-4d42-857e-7f3b81d98b3b,9780060850525,The Great Gatsby,10,9.99,180,F. Scott Fitzgerald,In Stock,4
+d4a2b1ef-74d0-4b28-b367-28b23d547a2e,9780142402511,The Outsiders,17,8.99,192,S.E. Hinton,In Stock,5
+6d2a0b10-2e96-4a5f-8424-ee1f73e507b2,9780451524935,Fahrenheit 451,13,6.59,249,Ray Bradbury,In Stock,6

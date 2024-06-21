@@ -1,0 +1,170 @@
+<mvc:View
+xmlns:tnt="sap.tnt"
+    xmlns:f="sap.f"
+    controllerName="com.app.centrallibrary.controller.UserLoans"
+   
+xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+>
+<f:DynamicPage >
+        <f:title>
+            <f:DynamicPageTitle >
+                <f:heading>
+                    <Title
+                
+                        text="WELCOME to Active Loans!!"
+                    />
+                </f:heading>
+                <f:expandedContent>
+						<Label  text="This is a subheading"/>
+					</f:expandedContent>
+
+                    <f:actions>
+                    <!-- <Button id="idIssuedAdd" text="Add" class="sapUiSmallMarginEnd" type="Success"/>
+                    <Button id="idIssuedEDit" text="Delete" type="Negative"/> -->
+                    </f:actions>
+            </f:DynamicPageTitle>
+        </f:title>
+
+        <f:header />
+        <f:content>
+    <!-- <List id="idUserLoans" items="{path:'/BooksLoan'}">
+    <StandardListItem  id="ss" title="{users}" counter="{users}"></StandardListItem>
+    </List> -->
+    <Table
+        id="idUserLoans"
+        items="{path:'/BooksLoan',filters:[{path:'Active',operator:'EQ',value1:'true'}],parameters:{ $count:true}}"
+        alternateRowColors="true"
+        backgroundDesign="Transparent"
+        mode="MultiSelect"
+        growing="true"
+        selectionChange="onchange"
+    >
+     
+     <!-- Header Tool Bar-->
+        <headerToolbar>
+            <OverflowToolbar id="idOverflowToolbar">
+                <Title
+                    id="idUserLoanTitle"
+                    text="UserLoans"
+                />
+                <ToolbarSpacer id="idtoolbar" />
+<!-- 
+                <Button
+                    id="idbutton"
+                    type="Accept"
+                    icon="sap-icon://add"
+                /> -->
+                <Button
+                    id="idEditbutton"
+                    type="Emphasized"
+                    icon="sap-icon://delete"
+                    press="onClickDelete"
+                    text="CloseLoan"
+                />
+                <!-- <Button
+                    id="idDeletebutton"
+                    type="Reject"
+                    icon="sap-icon://delete"
+                /> -->
+            </OverflowToolbar>
+        </headerToolbar>
+
+        <columns>
+            <Column id="ididColumn">
+                <Title
+                    id="ididtitle"
+                    text="BooksLoanId"
+                />
+            </Column>
+            <Column id="idUserColumn">
+                <Title
+                    id="idUsertitle"
+                    text="UserID"
+                />
+            </Column>
+             <Column id="idUserNameColumn">
+                <Title
+                    id="idUserNametitle"
+                    text="UserName"
+                />
+            </Column>
+            <Column id="idBooksColumn">
+                <Title
+                    id="idBookstitle"
+                    text="BooksISBN"
+                />
+            </Column>
+
+            <Column id="iddueColumn">
+                <Title
+                    id="idduetitle"
+                    text="Duedate"
+                />
+            </Column>
+            <Column id="idbodColumn">
+                <Title
+                    id="idbodtitle"
+                    text="LoanDatee"
+                />
+            </Column>
+ <Column id="idbodavl_stockColumn">
+                <Title
+                    id="idbodavl_stocktitle"
+                    text="LoanDatee"
+                />
+            </Column>
+
+            <Column id="idUserLoanActiveCol">
+                        <Label
+                            id="idUserLoanActiveLabel"
+                            text="Active"
+                        />
+                    </Column>
+        </columns>
+
+        <items>
+            <ColumnListItem id="idColumnListBooksLoan">
+                <cells>
+                    <Text
+                        id="idBISBNvalue"
+                        text="{ID}"
+                    />
+                    <Text
+                        id="idBUservalue"
+                        text="{users/ID}"
+                    />
+                    <Text
+                        id="idBUserNamevalue"
+                        text="{users/UserName}"
+                    />
+                    <Text
+                        id="idBdatevalue"
+                        text="{books/isbn}"
+                    />
+                    <Text
+                        id="idbodvalue"
+                        text="{duedate}"
+                    />
+                    <Text
+                        id="idduevalue"
+                        text="{loandate}"
+                    />
+                    <Text
+                        id="idavl_stovalue"
+                        text="{books/avl_stock}"
+                    />
+                    <Text
+                        id="idUserLoanActivevalue"
+
+                        text="{Active}"
+                    />
+                </cells>
+            </ColumnListItem>
+        </items>
+    </Table>
+    </f:content>
+    </f:DynamicPage>
+</mvc:View>

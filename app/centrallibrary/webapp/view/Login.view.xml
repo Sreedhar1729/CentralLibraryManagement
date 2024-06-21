@@ -1,0 +1,319 @@
+<mvc:View controllerName="com.app.centrallibrary.controller.Login"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:layout="sap.ui.layout"
+    xmlns:f="sap.f"
+    displayBlock="true">
+     <f:DynamicPage
+        id="_IDGenDynamicPage1"
+        headerExpanded="true"
+        class="simplesetcolor"
+    >
+        <f:title>
+            <f:DynamicPageTitle id="_IDGenDynamicPageTitle1" >
+                <f:heading>
+                    <Title
+                        id="_IDGenTitle1"
+                        text="CentralLibraySystemAPP"
+                        wrapping="true"
+                    />
+                </f:heading>
+                <f:actions>
+                    <ToolbarSpacer id="idlogintool" />
+                    <Button
+                        id="idActiveLoansButton"
+                        text="Active Loans"
+                        type="Default"
+                        press="ActiveLoans"
+                    />
+
+                    <Button
+                        id="idLoginIssue"
+                        text="Issue Book"
+                        type="Default"
+                        press="onISB"
+                        class="sapUiSmallMarginEnd"
+                    />
+                    <Button
+                        id="idLoginIssued"
+                        text="Total Issued Books"
+                        type="Default"
+                        press="Issue"
+                        class="sapUiSmallMarginEnd"
+                    />
+                    <Button
+                        id="idLoginReserved"
+                        text="Reserved Books"
+                        type="Default"
+                       press="Reserved"
+                        class="sapUiSmallMarginEnd"
+                    />
+                    <Avatar
+                        id="idAvatar"
+                        class="sapUiSmallMarginEnd"
+                        src=""
+                        displaySize="XS"
+                    />
+                    <Button id="adsign" icon="sap-icon://log" text="Logout"  press="adLog" type="Reject"/>
+                </f:actions>
+            </f:DynamicPageTitle>
+        </f:title>
+        <f:header>
+            <f:DynamicPageHeader id="_IDGenDynamicPageHeader1">
+                <HBox
+                    id="_IDGenHBox1"
+                    alignContent="SpaceBetween"
+                    width="100vw"
+                >
+                    <VBox
+                        id="_IDGenVBox1"
+                        class="sapUiSmallMarginEnd"
+                    >
+                        <Label
+                            id="_IDGenLabel1"
+                            text="ISBN"
+                        />
+                        <MultiInput
+                            id="_IDGenMultiInput1"
+                            value=""
+                        />
+                    </VBox>
+
+                    <VBox
+                        id="_IDGenVBox2"
+                        class="sapUiSmallMarginEnd"
+                    >
+                        <Label
+                            id="_IDGenLabel2"
+                            text="Author"
+                        />
+                        <MultiInput
+                            id="_IDGenMultiInput2"
+                            value=""
+                        />
+                    </VBox>
+
+                    <VBox
+                        id="_IDGenVBox3"
+                        class="sapUiSmallMarginEnd"
+                    >
+                        <Label
+                            id="_IDGenLabel3"
+                            text="Status"
+                        />
+                        <MultiInput
+                            id="_IDGenMultiInput3"
+                            value=""
+                        />
+                    </VBox>
+
+                    <VBox
+                        id="idGoButton"
+                        class="sapUiSmallMarginEnd"
+                    >
+                        <Label
+                            id="idGoButtonLabel"
+                            text=""
+                        />
+                        <Button
+                            id="idGoButtonValue"
+                            text="Go"
+                            type="Emphasized"
+                            press="onGoPress"
+                        />
+                    </VBox>
+
+                    <VBox
+                        id="idClearFilterButton"
+                        class="sapUiSmallMarginEnd"
+                    >
+                        <Label
+                            id="idClearFilterButtonLabel"
+                            text=""
+                        />
+                        <Button
+                            id="idClearFilterButtonValue"
+                            text="Clear Filter"
+                            type="Emphasized"
+                            press="onClearFilterPress"
+                        />
+                    </VBox>
+                </HBox>
+
+                <ToolbarSpacer id="tool" />
+                 
+            </f:DynamicPageHeader>
+        </f:header>
+
+        <f:content>
+            <Table
+                id="_IDGenTable1"
+                mode="MultiSelect"
+                alternateRowColors="true"
+                growing="true"
+                paste="onPaste"
+                items="{ path:'/Books',  parameters : {
+            $count : true  }}"
+        class="simplesetcolor"
+                
+            >
+                <headerToolbar>
+                    <OverflowToolbar id="idEmployeeTableHeader">
+                        <Title
+                            id="_IDGenTitle8"
+                            text="Books"
+                        />
+                        <ToolbarSpacer id="idTableHeaderSpacer" />
+                        <Toolbar id="_IDGenToolbar1">
+                            <content>
+                                <Title
+                                    id="Bookstitle"
+                                    text="No.Of.Books:{/Books/$count}"
+                                    textAlign="Begin"
+                                    textDirection="Inherit"
+                                />
+                            </content>
+                        </Toolbar>
+                        <!-- <ToolbarSpacer id="idTableHeaderSpacer" /> -->
+                        <Button
+                            id="idBtnCreate"
+                            icon="sap-icon://add"
+                            tooltip="Create Book"
+                            text="Add"
+                            type="Success"
+                            press="onCreateBtnPress"
+                        />
+                        <Button
+                            id="idBtnEdit"
+                            icon="sap-icon://edit"
+                            tooltip="Edit Book"
+                            text="Edit"
+                            type="Emphasized"
+                            press="onEditBtnPress"
+                        />
+
+                        <Button
+                            id="idBtnDelete"
+                            icon="sap-icon://delete"
+                            tooltip="Delete Book"
+                            text="Delete"
+                            type="Reject"
+                            press="onDeleteBtnPress"
+                        />
+                    </OverflowToolbar>
+                </headerToolbar>
+
+                <columns >
+                <Column id="_IDGenColum1">
+                        <Title
+                            id="_IDGenTitl3"
+                            text="ID"
+                        />
+                    </Column>
+
+                    <Column id="_IDGenColumn1">
+                        <Title
+                            id="_IDGenTitle3"
+                            text="ISBN"
+                        />
+                    </Column>
+
+                    <Column id="_IDGenColumn2">
+                        <Title
+                            id="_IDGenTitle4"
+                            text="Title"
+                        />
+                    </Column>
+
+                    <Column id="_IDGenColumn3">
+                        <Title
+                            id="_IDGenTitle5"
+                            text="Author"
+                        />
+                    </Column>
+
+                    <Column id="_IDGenColumn4">
+                        <Title
+                            id="_IDGenTitle6"
+                            text="Price"
+                        />
+                    </Column>
+                    <Column id="_IDGenColumn5">
+                        <Title
+                            id="_IDGenTitle7"
+                            text="Status"
+                        />
+                    </Column>
+                    <Column id="_IDGenColumn6">
+                        <Title
+                            id="_IDGenTitle9"
+                            text="pages"
+                        />
+                    </Column>
+                    <Column id="_IDGenColumn10">
+                        <Title
+                            id="_IDGenTitle11"
+                            text="Quantity"
+                        />
+                    </Column>
+                    <Column id="_IDGenColumn11">
+                        <Title
+                            id="_IDGenTitle12"
+                            text="Avl_Quantity"
+                        />
+                    </Column>
+                    
+                </columns>
+
+                <items>
+                    <ColumnListItem
+                        id="_IDGenColumnListItem1"
+                        
+                    >
+                        <cells>
+                        <Text
+                                id="_IDGenText9"
+                                text="{ID}"
+                            />
+                            <Text
+                                id="_IDGenText1"
+                                text="{isbn}"
+                            />
+                            <Text
+                                id="_IDGenText2"
+                                text="{title}"
+                            />
+                            <Text
+                                id="_IDGenText3"
+                                text="{author}"
+                            />
+                            <Text
+                                id="_IDGenText4"
+                                text="${price}"
+                            />
+                            <Text
+                                id="_IDGenText5"
+                                text="{status}"
+                            />
+                             <Text
+                                id="_IDGenText6"
+                                text="{pages}"
+                            />
+                             <Text
+                                id="_IDGenText7"
+                                text="{quantity}"
+                            />
+                             <Text
+                                id="_IDGenText8"
+                                text="{avl_stock}" 
+                                
+                            />
+
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </f:content>
+    </f:DynamicPage>
+</mvc:View>

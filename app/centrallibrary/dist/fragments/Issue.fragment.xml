@@ -1,0 +1,90 @@
+<core:FragmentDefinition 
+    xmlns:core="sap.ui.core"
+    xmlns:form="sap.ui.layout.form"
+    xmlns="sap.m"
+>
+
+ <Dialog
+        id="idIssueFragBook"
+        resizable="true"
+        draggable="true"
+        contentWidth="30%"
+        title="Issue BOOK Details"
+    >
+        <beginButton>
+            <Button
+                id="idIssueBookSave"
+                text="Save"
+                press="onIssueSave"
+                type="Success"
+            />
+        </beginButton>
+        <endButton>
+            <Button
+                id="idEditBooCancel"
+                text="Cancel"
+                press="onIssueClose"
+                type="Negative"
+            />
+        </endButton>
+        <content>
+            <!-- form creation -->
+            <form:SimpleForm
+                id="idIssueBookForm"
+                editable="true"
+                layout="ResponsiveGridLayout"
+                labelSpanXL="3"
+                labelSpanL="3"
+                labelSpanM="3"
+                labelSpanS="12"
+                adjustLabelSpan="false"
+                emptySpanXL="4"
+                emptySpanL="4"
+                emptySpanM="4"
+                emptySpanS="0"
+                columnsXL="1"
+                columnsL="1"
+                columnsM="1"
+                singleContainerFullSize="false"
+            >
+             <Label
+                    id="idIssueBookID"
+                    text="ID"
+                />
+                <Input
+                    id="idIssueBookIDVal"
+                    editable="true"
+                    valueLiveUpdate="true"
+                    value="{newLoanModel>/books_ID}"
+                />
+                <Label
+                    id="idIssueBookUserID"
+                    text="UserID"
+                />
+                 <Input
+                    id="idIssueBook1UserIDVal"
+                    editable="true"
+                    liveChange="true"
+                    value="{newLoanModel>/users_ID}"
+                />
+                
+                 
+                 
+                <Label
+                    id="idIssueBookPrice"
+                    text="DueDate"
+                />
+                <Input
+                    id="idIssueBookPriceVal"
+                    editable="true"
+                    
+                    
+                
+                    value="{newLoanModel>/duedate}"
+                />
+                             </form:SimpleForm>
+        </content>
+    </Dialog>
+
+
+</core:FragmentDefinition>

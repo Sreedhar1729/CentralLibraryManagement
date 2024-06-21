@@ -1,0 +1,78 @@
+<core:FragmentDefinition
+    xmlns:core="sap.ui.core"
+    xmlns:form="sap.ui.layout.form"
+    xmlns="sap.m"
+>
+    <Dialog id="_IDGenDialog11">
+        <beginButton>
+            <Button
+                icon="sap-icon://visits"
+                id="btn"
+                text="Login"
+                type="Accept"
+                press="onUserBtnClick"
+            />
+        </beginButton>
+        <endButton>
+            <Button
+                icon="sap-icon://visits"
+                id="reg"
+                text="Signup"
+                type="Attention"
+                press="onRegBtnClick"
+            />
+        </endButton>
+        <content>
+            <form:SimpleForm
+                id="idUserLoginForm"
+                layout="ResponsiveGridLayout"
+            >
+                <form:content>
+                    <Title
+                        id="idFormTitle"
+                        text="User Login Page"
+                        textAlign="Center"
+                    />
+
+                    <Label
+                        id="idUserNameLabel"
+                        text="User Name "
+                        textAlign="Initial"
+                    />
+                    <Input
+                        id="idUserInput"
+                        type="Text"
+                        width="80%"
+                        textAlign="Initial"
+                        placeholder="username"
+                    />
+
+                    <Label
+                        id="idUserPasswordLabel"
+                        text="Password"
+                        textAlign="Initial"
+                    />
+                    <Input
+                        id="idPasswordInput"
+                        type="Password"
+                        width="80%"
+                        textAlign="Initial"
+                        placeholder="Password"
+                    />
+                    <VBox
+                        id="idUserLogin"
+                        alignItems="Center"
+                    >
+                        <Button
+                            icon="sap-icon://visits"
+                            id="can"
+                            text="Cancel"
+                            type="Reject"
+                            press="onUserCanClick"
+                        />
+                    </VBox>
+                </form:content>
+            </form:SimpleForm>
+        </content>
+    </Dialog>
+</core:FragmentDefinition>

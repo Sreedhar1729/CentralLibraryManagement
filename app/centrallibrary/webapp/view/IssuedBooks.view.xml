@@ -1,0 +1,125 @@
+<mvc:View
+    controllerName="com.app.centrallibrary.controller.IssuedBooks"
+    xmlns:f="sap.f"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+>
+    <f:DynamicPage id="idIssuedPage">
+        <f:title>
+            <f:DynamicPageTitle id="idIssuedTitle">
+                <f:heading>
+                    <Title
+                        id="idIssuedPageTitle"
+                        text="WELCOME to Books Loan History!!"
+                    />
+                </f:heading>
+                <f:expandedContent>
+                    <Label
+                        id="idsub"
+                        text="Books Loan {/BooksLoan/$count}"
+                    />
+                </f:expandedContent>
+
+                <f:actions>
+                    <!-- <Button id="idIssuedAdd" text="Add" class="sapUiSmallMarginEnd" type="Success"/>
+                    <Button id="idIssuedEDit" text="Delete" type="Negative"/> -->
+                </f:actions>
+            </f:DynamicPageTitle>
+        </f:title>
+
+        <f:header />
+        <f:content>
+            <Table
+                id="idIssuedBooksTable"
+                contextualWidth="Inherit"
+                alternateRowColors="true"
+                growing="true"
+                items="{path:'/BooksLoan',parameters:{$count:true}}"
+            >
+                <columns>
+                    <Column id="idIssueBooksIDCol">
+                        <Label
+                            id="idIssuedIDLabel"
+                            text="LoanId"
+                        />
+                    </Column>
+                    <Column id="idIssueBooksUserIDCol">
+                        <Label
+                            id="idIssuedUserIDLabel"
+                            text="User ID"
+                        />
+                    </Column>
+                    <Column id="idIssueBooksUserNameCol">
+                        <Label
+                            id="idIssuedUserNameLabel"
+                            text="User Name"
+                        />
+                    </Column>
+                    <Column id="idIssueBooksTitleCol">
+                        <Label
+                            id="idIssuedTitleLabel"
+                            text="BookTitle"
+                        />
+                    </Column>
+                    <Column id="idIssueBooksisbnCol">
+                        <Label
+                            id="idIssuedisbnLabel"
+                            text="Book_ISBN"
+                        />
+                    </Column>
+                    <Column id="idIssueBooksAuthorCol">
+                        <Label
+                            id="idIssuedAuthorLabel"
+                            text="Author"
+                        />
+                    </Column>
+
+                    <Column id="idIssueBooksActiveCol">
+                        <Label
+                            id="idIssuedActiveLabel"
+                            text="Active"
+                        />
+                    </Column>
+                </columns>
+
+                <items>
+                    <ColumnListItem id="idIssueColList">
+                        <cells>
+                            <Text
+                                id="idIssueIDVal"
+                                text="{ID}"
+                            />
+                            <Text
+                                id="idIssueUserIDVal"
+                                text="{users/ID}"
+                            />
+                            <Text
+                                id="idIssueUserNameVal"
+                                text="{users/UserName}"
+                            />
+                            <Text
+                                id="idIssueTitleVal"
+                                text="{books/title}"
+                            />
+                            <Text
+                                id="idIssueISBNeVal"
+                                text="{books/isbn}"
+                            />
+                            <Text
+                                id="idIssueAuthorVal"
+                                text="{books/author}"
+                            />
+                            <Text
+                                id="idIssueActiveVal"
+                                text="{Active}"
+                            />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </f:content>
+    </f:DynamicPage>
+    <!-- </Page> -->
+</mvc:View>

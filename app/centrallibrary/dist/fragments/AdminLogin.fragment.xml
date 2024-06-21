@@ -1,0 +1,62 @@
+<core:FragmentDefinition
+    xmlns:core="sap.ui.core"
+    xmlns:form="sap.ui.layout.form"
+    xmlns="sap.m"
+>
+ <Dialog id="_IDGenDialog1"  ><beginButton>
+            <Button
+                        icon="sap-icon://visits"
+                        id="btn1"
+                        text="Login"
+                        type="Accept"
+                        press="onBtnClick"
+                    />
+        </beginButton>
+        <endButton>
+            <Button
+                id="idCanButton"
+                text="Cancel"
+                press="onClDialog"
+                type="Negative"
+            />
+        </endButton>
+<content>
+        <form:SimpleForm id="_IDGenSimpleForm1"  layout="ResponsiveGridLayout" class="simple">
+         
+            <form:content>
+                <Title id="_IDGenTitle1"  text="Login Page" textAlign="Center"></Title>
+                  
+                        <Label id="_IDGenLabel1" 
+                            text="User Name "
+                            textAlign="Initial"
+                            
+                        />
+                        <Input id="user"
+                            type="Text"
+                            width="80%"
+                            textAlign="Initial"
+                            placeholder="username"
+                            
+                        /> 
+
+                    <Label id="_IDGenLabel2" 
+                        text="Password"
+                        textAlign="Initial"
+                    />
+                    <Input id="pwd"
+                        type="Password"
+                        width="80%"
+                        textAlign="Initial"
+                        placeholder="Password"
+                    />
+ 
+
+                   
+                    
+              
+            </form:content>
+        </form:SimpleForm>
+        </content>
+          </Dialog>
+
+</core:FragmentDefinition>

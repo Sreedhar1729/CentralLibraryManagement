@@ -1,0 +1,77 @@
+{
+  "name": "centrallibrary",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "repository": {
+    "type": "git",
+    "url": "<Add your repository here>"
+  },
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@sap/cds": "^7.9.2",
+    "@sap/cds-hana": "^2",
+    "@sap/cds-odata-v2-adapter-proxy": "^1.9.21",
+    "@sap/xssec": "^3",
+    "express": "^4"
+  },
+  "devDependencies": {
+    "@cap-js/sqlite": "^1",
+    "@sap/cds-dk": "^7.9.3",
+    "@sap/eslint-plugin-cds": "^3",
+    "@sap/ux-specification": "UI5-1.125",
+    "eslint": "^9",
+    "rimraf": "^5.0.5"
+  },
+  "scripts": {
+    "start": "cds-serve",
+    "watch-centrallibrary": "cds watch --open centrallibrary/webapp/index.html?sap-ui-xx-viewCache=false",
+    "undeploy": "cf undeploy CentralLibrary --delete-services --delete-service-keys --delete-service-brokers",
+    "build": "rimraf resources mta_archives && mbt build --mtar archive",
+    "deploy": "cf deploy mta_archives/archive.mtar --retries 1",
+    "watch-project1": "cds watch --open project1/webapp/index.html?sap-ui-xx-viewCache=false"
+  },
+  "main": "eslint.config.js",
+  "keywords": [],
+  "author": "",
+  "cds": {
+    "requires": {
+      "db": {
+        "[devlopment]": {
+          "kind": "sqlite"
+        },
+        "[production]": {
+          "kind": "hana"
+        }
+      },
+      "[production]": {
+        "auth": "xsuaa"
+      },
+      "[development]": {
+        "auth": {
+          "kind": "mocked",
+          "users": {
+            "admin@sap.com": {
+              "password": "Initial",
+              "ID": "admin@sap.com",
+              "roles": [
+                "Admin"
+              ]
+            },
+            "user@sap.com": {
+              "password": "Initial",
+              "ID": "user@sap.com",
+              "roles": [
+                "User"
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "sapux": [
+    "app/centrallibrary",
+    "app/project1"
+  ]
+}

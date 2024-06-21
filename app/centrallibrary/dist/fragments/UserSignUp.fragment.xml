@@ -1,0 +1,155 @@
+<core:FragmentDefinition
+    xmlns:core="sap.ui.core"
+    xmlns:form="sap.ui.layout.form"
+    xmlns="sap.m"
+>
+    <Dialog
+        id="idSignUpUserDialog"
+        resizable="true"
+        draggable="true"
+        contentWidth="30%"
+        title="signup Details"
+    >
+        <customHeader>
+            <Bar id="Bar">
+                <contentLeft>
+                    <Text
+                        id="idUserSignUpUserSSSDetailText"
+                        text="Signup Details"
+                    />
+                </contentLeft>
+            </Bar>
+        </customHeader>
+        <VBox
+            id="idUserSignupVB"
+            class="sapUiSmallMargin"
+            alignItems="Center"
+        >
+            <form:SimpleForm
+                id="idSimpleForm1"
+                layout="ResponsiveGridLayout"
+            >
+                <form:content>
+                    <Title
+                        id="idUserSignUpTitleCOntent"
+                        class="signup"
+                        text="Signup Details"
+                        textAlign="Center"
+                    />
+                     <!-- <Label
+                        id="IDUserID"
+                        class="username"
+                        text="User ID"
+                        textAlign="Initial"
+                    />
+                    <Input
+                        class="input"
+                        id="IDIDUserID"
+                        placeholder="Enter Username"
+                        width="80%"
+                        textAlign="Initial"
+                        value="{localModelU>/id}"
+                    /> -->
+
+                    <Label
+                        id="IDUserName"
+                        class="username"
+                        text="User name"
+                        textAlign="Initial"
+                    />
+                    <Input
+                        class="input"
+                        id="user1"
+                        placeholder="Enter Username"
+                        width="80%"
+                        textAlign="Initial"
+                        required="true"
+                        liveChange="onUserName"
+                        value="{localModelU>/UserName}"
+                    />
+
+                    <Label
+                        id="PasswordValue"
+                        class="Password"
+                        text="Password"
+                        required="true"
+                        textAlign="Initial"
+                    />
+                    <Input
+                        id="passwordValue"
+                        type="Password"
+                        placeholder="Enter Password"
+                        width="80%"
+                        textAlign="Initial"
+                        required="true"
+                        liveChange="onPassword"
+                        value="{localModelU>/Password}"
+                    />
+
+                    <Label
+                        id="IDUseEmail"
+                        class="email"
+                        text="Email"
+                        
+                        textAlign="Initial"
+                    />
+                    <Input
+                        class="input"
+                        id="email"
+                        placeholder="Enter email"
+                        width="80%"
+                        textAlign="Initial"
+                        required="true"
+                        liveChange="onEmailLiveChange"
+                        value="{localModelU>/email}"
+                    />
+
+                    <Label
+                        id="IDUserPhoneLable"
+                        class="phoneNumber"
+                        text="Phone Number:"
+                        textAlign="Initial"
+                    />
+                    <Input
+                        class="input"
+                        id="phoneNumber"
+                        placeholder="Enter PhoneNumber"
+                        width="80%"
+            liveChange="onMobileVal"
+                        
+                        textAlign="Initial"
+                        required="true"
+                        value="{localModelU>/mobile}"
+                    />
+
+                    <VBox
+                        id="VBIDUserName"
+                        alignItems="Center"
+                        class="sapUiSmallMarginTop"
+                    >
+                        <HBox id="HboxID">
+                            <Button
+                                class="sapUiTinyMarginBegin"
+                                id="IDIDIDSIGN"
+                                text="signup"
+                                type="Accept"
+                                width="100%"
+                                press="UserSignUpBtnClick"
+                            />
+                            <!-- </HBox>
+                        <HBox id="HHBoxID"> -->
+                            <Button
+                                class="sapUiTinyMarginEnd"
+                                id="btn2"
+                                text="Cancel"
+                                type="Reject"
+                                width="100%"
+                                press="SignupCancelButton"
+                            />
+                        </HBox>
+                    </VBox>
+                </form:content>
+            </form:SimpleForm>
+        </VBox>
+    </Dialog>
+</core:FragmentDefinition>
