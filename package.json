@@ -13,7 +13,8 @@
     "@sap/cds-hana": "^2",
     "@sap/cds-odata-v2-adapter-proxy": "^1.9.21",
     "@sap/xssec": "^3",
-    "express": "^4"
+    "express": "^4",
+    "hdb": "^0.19.8"
   },
   "devDependencies": {
     "@cap-js/sqlite": "^1",
@@ -35,43 +36,44 @@
   "keywords": [],
   "author": "",
   "cds": {
+    "build": {
+      "tasks": [
+        {
+          "for": "hana",
+          "dest": "../db"
+        },
+        {
+          "for": "node-cf"
+        }
+      ]
+    },
     "requires": {
       "db": {
-        "[devlopment]": {
-          "kind": "sqlite"
-        },
-        "[production]": {
-          "kind": "hana"
-        }
+          "kind": "hana-cloud"
       },
-      "[production]": {
-        "auth": "xsuaa"
-      },
-      "[development]": {
-        "auth": {
-          "kind": "mocked",
-          "users": {
+      "auth": {
+        "kind": "mocked",
+        "users": {
             "admin@sap.com": {
-              "password": "Initial",
-              "ID": "admin@sap.com",
-              "roles": [
-                "Admin"
-              ]
+                "password": "Initial",
+                "ID": "admin@sap.com",
+                "roles": [
+                    "Admin"
+                ]
             },
             "user@sap.com": {
-              "password": "Initial",
-              "ID": "user@sap.com",
-              "roles": [
-                "User"
-              ]
+                "password": "Initial",
+                "ID": "user@sap.com",
+                "roles": [
+                    "User"
+                ]
             }
           }
         }
-      }
-    }
   },
   "sapux": [
     "app/centrallibrary",
     "app/project1"
   ]
 }
+  }

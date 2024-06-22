@@ -26,6 +26,27 @@
         "--in-memory?"
       ],
       "problemMatcher": []
+    },
+    {
+      "type": "build.mta",
+      "label": "Build ",
+      "taskType": "Build",
+      "projectPath": "/home/user/CentralLibrary",
+      "extensions": []
+    },
+    {
+      "type": "deploy.mta.cf",
+      "label": "Deploy to Cloud Foundry ",
+      "taskType": "Deploy",
+      "mtarPath": "/home/user/CentralLibrary/mta_archives/CentralLibrary_0.0.1.mtar",
+      "extensions": [],
+      "dependsOn": [
+        "Build "
+      ],
+      "cfTarget": "",
+      "cfEndpoint": "",
+      "cfOrg": "",
+      "cfSpace": ""
     }
   ]
 }

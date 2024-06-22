@@ -51,9 +51,11 @@ modules:
     no-source: true
 - name: centrallibrary-db-deployer
   type: hdb
-  path: gen/db
+  path: db #gen/db
   requires:
   - name: centrallibrary-db
+    properties:
+      TARGET_CONTAINER: ~{hdi-container-name}
   parameters:
     buildpack: nodejs_buildpack
 - name: CentralLibrary-app-content
@@ -70,7 +72,6 @@ modules:
       - comappcentrallibrary.zip
       name: comappcentrallibrary
       target-path: resources/
-    
 - name: comappcentrallibrary
   type: html5
   path: app/centrallibrary
@@ -81,7 +82,6 @@ modules:
     - npm install
     - npm run build:cf
     supported-platforms: []
- 
 resources:
 - name: CentralLibrary-destination-service
   type: org.cloudfoundry.managed-service
@@ -131,6 +131,14 @@ resources:
   parameters:
     service: hana
     service-plan: hdi-shared
+  properties:
+    hdi-container-name: ${service-name}
+- name: cross-container-service-1
+  type: org.cloudfoundry.existing-service
+  parameters:
+    service-name: Hana-HDI
+  properties:
+    the-service-name: ${service-name}
 parameters:
   deploy_mode: html5-repo
   enable-parallel-deployments: true
